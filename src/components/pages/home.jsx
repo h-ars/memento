@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import PoalroidComp from '../polaroid';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    const imgSectionRef = useRef(null);
+    const navigate = useNavigate();
 
     const images = [
         { src: 'https://i.pinimg.com/1200x/dd/88/72/dd8872932e3b55c174738f6a0a511c26.jpg', description: 'The first date of the summer. 💗', top: '-6%', left: '48%'},
@@ -19,34 +19,11 @@ const Home = () => {
         { src:'https://i.pinimg.com/736x/c0/d0/91/c0d091e5e52f63e6deb661017a7356a8.jpg', description: 'That one train ride through the alps, Alps2022. ⛺', top: '17%', left: '86%'}
     ];
 
-    // useEffect(() => {
-    //     const cards = imgSectionRef.current?.querySelectorAll('.imgContainer');
-
-    //     cards?.forEach(card => {
-    //         const images = card.querySelectorAll('.image');
-    //         let maxHeight = 0;
-
-    //         images.forEach(image => {
-    //             // image.style.width = '350px';
-    //             if (image.complete) {
-    //                 maxHeight = Math.max(maxHeight, image.offsetHeight);
-    //             } else {
-    //                 image.addEventListener('load', () => {
-    //                     maxHeight = Math.max(maxHeight, image.offsetHeight);
-    //                     card.style.height = `${maxHeight}px`;
-    //                 });
-    //             }
-    //         });
-
-    //         card.style.height = `${maxHeight}px`;
-    //     });
-    // }, []);
-
     return (
         <main>
             <div className="heroContainer relative w-full h-screen flex flex-col align-middle justify-center items-center">
-                <div className="idealCnt h-screen flex max-sm:p-4 max-lg:flex-col lg:gap-28 items-center ">
-                    <div className="coalition flex flex-col flex-1 align-middle justify-center lg:gap-4">
+                <div className="idealCnt h-screen w-[85%] flex gap-8 max-sm:p-4 max-lg:flex-col lg:gap-28 items-center justify-center">
+                    <div className="coalition flex flex-col align-middle justify-center lg:gap-4">
                         <div className="heroTitle w-full flex justify-center max-md:pt-16">
                             <div className="relative inline-block">
                                 <span className="text-5xl lg:text-7xl font-bold text-neutral-50 relative z-10">Memento</span>
@@ -56,14 +33,14 @@ const Home = () => {
                         <div className='heroSct w-full flex flex-col align-middle justify-center items-center mt-4 lg:pl-1.5'>
                             <div className="description w-full flex gap-2 flex-col justify-center items-center lg:place-items-start">
                                 <p className='text-[12px] lg:text-[16px] font-medium italic text-neutral-400'>a digital memoir of your life.</p>
-                                <div className="heroBtn w-fit h-fit backdrop-blur-md bg-white/5 border border-white/30 text-pink-600 font-medium text-[14px] lg:text-xl px-6 py-2 rounded-md  hover:bg-neutral-50/20 hover:border-pink-200 transition-all flex align-middle justify-center z-10 shadow-md cursor-pointer" onClick={()=>console.log('clicked')}>Preserve a Moment</div>
+                                <div className="heroBtn w-fit h-fit backdrop-blur-md bg-white/5 border border-white/30 text-pink-600 font-medium text-[14px] lg:text-xl px-6 py-2 rounded-md  hover:bg-neutral-50/20 hover:border-pink-200 transition-all flex align-middle justify-center z-10 shadow-md cursor-pointer" onClick={() => navigate("/signin")}>Preserve a Moment</div>
                             </div>
                         </div>
                     </div>
                     <div className="imgStorage relative inline-block">
-                        <span className="halo absolute inset-0 -inset-x-6 -inset-y-10 -z-10 blur-[125px] rounded-full bg-pink-600 opacity-30 pointer-events-none translate-x-[300px]"></span>
-                        <div className="imgSct w-fit h-[55vh] md:max-h-[530px] lg:h-[65vh] bg-white overflow-hidden md:border-16 lg:border-32 border-white md:outline-8 outline-neutral-200 ">
-                            <div className="imgSection columns-2 md:columns-4 gap-4 justify-center align-middle overflow-hidden">
+                        <span className="halo absolute inset-0 -inset-x-6 -inset-y-20 -z-10 blur-[125px] rounded-full bg-pink-600 opacity-30 pointer-events-none translate-x-[300px] overflow-hidden"></span>
+                        <div className="imgSct w-fit h-[55vh] md:max-h-[530px] lg:h-[65vh] bg-white overflow-hidden border-8 md:border-16 lg:border-32 border-white outline-4 md:outline-8 outline-neutral-200 ">
+                            <div className="imgSection columns-2 [@media(600px<width<1008px)]:columns-3 [@media(min-width:1048px)]:columns-4 gap-4 justify-center align-middle overflow-hidden">
                                 {images.map((image, i)=>(
                                     <div className="imgContainer" key={i}>
                                         <div className="imgCard">
@@ -84,10 +61,6 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* <div className="footer sticky w-[100vw] bottom-0 p-5 flex items-center justify-center italic text-[14px] text-neutral-200 lg:text-neutral-400 bg-neutral-50/30 backdrop-blur-lg backdrop-saturate-150 border-t border-white/20">
-                    <p>"remember what might fade away."</p>
-                </div> */}
             </div>
         </main>
     );
