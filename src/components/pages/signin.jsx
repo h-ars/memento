@@ -39,7 +39,7 @@ export default function SignIn() {
           </div>
 
           <div className="card bg-white rounded-2xl shadow-lg p-6 flex flex-col md:gap-3 hover:shadow-xl transition-shadow shadow-pink-100">
-            <div className="w-12 h-12 max-sm:text-[14px] max-sm:w-fit max-sm:h-fit max-sm:p-1 max-sm:mb-3 text-xl flex items-center justify-center rounded-full bg-gradient-to-br from-pink-100 to-pink-400 text-white shadow-lg shadow-pink-300">
+            <div className="w-12 h-12 pb-1.5 max-sm:text-[14px] max-sm:w-fit max-sm:h-fit max-sm:p-1 max-sm:mb-3 text-xl flex items-center justify-center rounded-full bg-gradient-to-br from-pink-100 to-pink-400 text-white shadow-lg shadow-pink-300">
               📷
             </div>
             <p className="text-lg font-semibold max-sm:text-[16px]">Capture and relive memories</p>
